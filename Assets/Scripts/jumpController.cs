@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class controller : MonoBehaviour
+public class jumpController : MonoBehaviour
 {
     // variables
 
     private Rigidbody playerRb;
-    public float jumpForce;
+    public float jumpForce = 10f;
     public float gravityModifier;
     public bool isOnGround = true;
 
