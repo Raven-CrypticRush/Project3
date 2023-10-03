@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class controller : MonoBehaviour
 {
     // variables
 
@@ -17,14 +16,14 @@ public class playerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
-    
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
 
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -36,6 +35,6 @@ public class playerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        isOnGround = false;
+        isOnGround = true;
     }
 }
