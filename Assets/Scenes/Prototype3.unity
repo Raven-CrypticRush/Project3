@@ -335,7 +335,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &632052453
+--- !u!114 &632052456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,12 +344,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 632052446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8c9be489c72ace40b799ffd0d7898a4, type: 3}
+  m_Script: {fileID: 11500000, guid: cfa4f1ed827c48d418d55bfa8b4529c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 10
   gravityModifier: 1.5
   isOnGround: 1
+  gameOver: 0
 --- !u!1001 &710619708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -357,6 +358,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 500785862254251041, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
+      propertyPath: playerControllerScript
+      value: 
+      objectReference: {fileID: 632052456}
     - target: {fileID: 2672295592712126189, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -418,7 +423,6 @@ GameObject:
   - component: {fileID: 835818921}
   - component: {fileID: 835818920}
   - component: {fileID: 835818922}
-  - component: {fileID: 835818924}
   - component: {fileID: 835818923}
   - component: {fileID: 835818925}
   m_Layer: 9
@@ -508,6 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  playerControllerScript: {fileID: 632052456}
 --- !u!114 &835818923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,20 +525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413623c36eab5af4d8d97f452f4622dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &835818924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835818919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a8f8611b6afeb94494657c67ce02b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstaclePrefab: {fileID: 2672295592712344269, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
-  spawnPos: {x: 25, y: 0, z: 0}
 --- !u!65 &835818925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -554,6 +545,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 500785862254251041, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
+      propertyPath: playerControllerScript
+      value: 
+      objectReference: {fileID: 632052456}
     - target: {fileID: 2672295592712126189, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -665,24 +660,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f8d00bf5057f624e949aef802595da9, type: 3}
---- !u!1 &1264234831 stripped
+--- !u!1 &1261887673
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2672295592712344269, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
-  m_PrefabInstance: {fileID: 2672295591751230338}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1264459120
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261887675}
+  - component: {fileID: 1261887674}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1261887674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264234831}
+  m_GameObject: {fileID: 1261887673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d62dce2972c6e7c45b5ee1a48b65bfae, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a8f8611b6afeb94494657c67ce02b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  obstaclePrefab: {fileID: 2672295592712344269, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
+  spawnPos: {x: 25, y: 0, z: 0}
+--- !u!4 &1261887675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261887673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.528743, y: 8.519437, z: -1.4024429}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1405807992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -690,6 +713,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 500785862254251041, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
+      propertyPath: playerControllerScript
+      value: 
+      objectReference: {fileID: 632052456}
     - target: {fileID: 2672295592712126189, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -747,6 +774,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 500785862254251041, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
+      propertyPath: playerControllerScript
+      value: 
+      objectReference: {fileID: 632052456}
     - target: {fileID: 2672295592712126189, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -804,6 +835,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 500785862254251041, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
+      propertyPath: playerControllerScript
+      value: 
+      objectReference: {fileID: 632052456}
     - target: {fileID: 2672295592712126189, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -958,6 +993,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 500785862254251041, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
+      propertyPath: playerControllerScript
+      value: 
+      objectReference: {fileID: 632052456}
     - target: {fileID: 2672295592712126189, guid: fb8e0e768f3a3e24482b4a7f9c3dd16a, type: 3}
       propertyPath: m_RootOrder
       value: 5

@@ -11,11 +11,12 @@ public class jumpController : MonoBehaviour
     public float gravityModifier;
     public bool isOnGround = true;
     public bool gameOver;
-    
+    public playerController playerControllerScript;
 
     // Start is called before the first frame update
     void Start()
     {
+
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
 

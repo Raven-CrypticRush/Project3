@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2672295592712126189}
   - component: {fileID: 2672295592712232184}
   - component: {fileID: 2672295592712232187}
-  - component: {fileID: -3179009928531197234}
+  - component: {fileID: 500785862254251041}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -147,7 +147,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-3179009928531197234
+--- !u!114 &500785862254251041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,3 +160,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  playerControllerScript: {fileID: 0}
